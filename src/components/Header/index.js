@@ -1,9 +1,10 @@
 import React from 'react';
+import './style.scss';
 
 const Header = () => {
   return(
-    <div>
-    <h2>Header</h2>
+    <div className='header'>
+    <h2><i className="fas fa-book"></i>Header</h2>
     </div>
   )
 }
