@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { isOpenedChangeActionType } from './actions';
+import { isOpenedChangeActionType, addToDoActionType } from './actions';
 
 
 class AddNew extends Component {
@@ -26,6 +26,11 @@ class AddNew extends Component {
     e.preventDefault();
     console.log('title', this.state.title);
     console.log('text', this.state.text);
+    const newToDo = {
+      title: this.state.title,
+      text: this.state.text
+    }
+    this.props.addNewToDo(newToDo);
     this.props.isOpenedChange();
   }
 
@@ -57,7 +62,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps ={
-  isOpenedChange: isOpenedChangeActionType
+  isOpenedChange: isOpenedChangeActionType,
+  addNewToDo: addToDoActionType
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddNew);
