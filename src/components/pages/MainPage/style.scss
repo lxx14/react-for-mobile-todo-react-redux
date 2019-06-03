@@ -75,6 +75,8 @@
     right: 0px;
   }
   .todo-container {
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: 90%;
     margin: 30px auto 0 auto;
@@ -87,12 +89,17 @@
       padding: 0 0 5px 0;
       border-bottom: 2px dashed black;
     }
-    .fas {
-      position: absolute;
-      top: -19px;
-      transform: rotate(45deg);
-      font-size: 20px;
-      cursor: pointer;
+    .handlers-container {
+      display: flex;
+      justify-content: flex-end;
+      .fas {
+        font-size: 30px;
+        cursor: pointer;
+      }
+      .fa-plus {
+        transform: rotate(45deg);
+        margin: 0 40px 0 0;
+      }
     }
   }
 }
