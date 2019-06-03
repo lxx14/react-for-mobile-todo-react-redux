@@ -39,8 +39,24 @@
     .add-new-form {
       display: flex;
       flex-direction: column;
-      input {
-        margin: 0 0 20px 0;
+      padding: 0 10px 10px 10px;
+      input, textarea {
+        margin: 0 0 10px 0;
+        padding: 5px;
+      }
+      .text-container {
+        min-height: 70px;
+      }
+      button {
+        width: 100px;
+        height: 30px;
+        margin: 0 auto;
+        border-radius: 15px;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        border: 2px solid black;
+        cursor: pointer;
       }
     }
   }
