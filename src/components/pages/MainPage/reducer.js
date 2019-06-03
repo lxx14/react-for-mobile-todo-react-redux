@@ -1,6 +1,6 @@
 const initialState = {
   toDos: [],
-  isOpened: false,
+  isOpened: true,
   searchString: ''
 }
 

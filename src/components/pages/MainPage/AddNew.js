@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class AddNew extends Component {
 
@@ -10,12 +11,12 @@ class AddNew extends Component {
   }
 
   addNewTitle = (e) => {
-    this.setState ({
+    this.setState({
       title: e.target.value
     })
   }
   addNewText = (e) => {
-    this.setState ({
+    this.setState({
       text: e.target.value
     })
   }
@@ -26,11 +27,13 @@ class AddNew extends Component {
   }
 
   render() {
+    const { isOpened } = this.props;
+    console.log(isOpened);
     return (
-      <div className='add-new-container'>
-        <i className="fas fa-plus-circle"></i>
+      <div className={isOpened ? "add-new-container open-new-container" : "add-new-container"}>
+        <i className={isOpened ? "fas fa-minus-circle open" : "fas fa-plus-circle"}></i>
         <form className='add-new-form' onSubmit={this.submitNew}>
-          <input type='text' onChange={this.addNewTitle}/>
+          <input type='text' onChange={this.addNewTitle} />
           <textarea className="text-container" onChange={this.addNewText}>
           </textarea>
           <button>Add</button>
@@ -40,4 +43,10 @@ class AddNew extends Component {
   }
 }
 
-export default AddNew;
+const mapStateToProps = (state) => {
+  return {
+    isOpened: state.mainPage.isOpened
+  }
+}
+
+export default connect(mapStateToProps)(AddNew);
