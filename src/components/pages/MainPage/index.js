@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import AddNew from './AddNew';
 import Search from './Search';
 import './style.scss';
@@ -7,11 +8,17 @@ class MainPage extends Component {
 
 
   render() {
+    const {toDos} = this.props;
+    if (this.props.toDos.length>0) {
+    const toDosList = toDos.map(item=><div key={item.id}><h3>{item.title}</h3><p>{item.text}</p></div>)
+    } else {
+      const toDosList = <h2>Empty, let's change it! :)</h2>
+    }
     return (
       <div className='page'>
         <Search />
         <div>
-          <h2>MainPage</h2>
+          {toDosList}
         </div>
         <AddNew />
       </div>
@@ -19,4 +26,8 @@ class MainPage extends Component {
   }
 }
 
-export default MainPage;
+const mapStateToProps = (state) => ({
+  toDos: state.mainPage.toDos
+})
+
+export default connect(mapStateToProps)(MainPage);

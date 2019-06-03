@@ -8,7 +8,8 @@ class AddNew extends Component {
   constructor() {
     this.state = {
       title: '',
-      text: ''
+      text: '',
+      id: 0
     }
   }
 
@@ -24,9 +25,11 @@ class AddNew extends Component {
   }
   submitNew = (e) => {
     e.preventDefault();
-    console.log('title', this.state.title);
-    console.log('text', this.state.text);
+    this.setState({
+      id: this.state.id+1
+    })
     const newToDo = {
+      id: this.state.id,
       title: this.state.title,
       text: this.state.text
     }
@@ -40,7 +43,6 @@ class AddNew extends Component {
 
   render() {
     const { isOpened } = this.props;
-    console.log(isOpened);
     return (
       <div className={isOpened ? "add-new-container open-new-container" : "add-new-container"}>
         <i className={isOpened ? "fas fa-minus-circle open" : "fas fa-plus-circle close"} onClick={this.openHandler}></i>
@@ -61,7 +63,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps ={
+const mapDispatchToProps = {
   isOpenedChange: isOpenedChangeActionType,
   addNewToDo: addToDoActionType
 }
