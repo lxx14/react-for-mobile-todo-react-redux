@@ -16,7 +16,7 @@ export default function (state = initialState, action) {
     case ADD_TODO:
       return {
         ...state,
-        toDos: [...state.toDos, action.data]
+        toDos: [action.data, ...state.toDos]
       }
   }
 
