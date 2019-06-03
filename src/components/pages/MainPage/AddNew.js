@@ -26,7 +26,7 @@ class AddNew extends Component {
   submitNew = (e) => {
     e.preventDefault();
     this.setState({
-      id: this.state.id+1
+      id: this.state.id + 1
     })
     const newToDo = {
       id: this.state.id,
@@ -35,6 +35,7 @@ class AddNew extends Component {
     }
     this.props.addNewToDo(newToDo);
     this.props.isOpenedChange();
+
   }
 
   openHandler = () => {
