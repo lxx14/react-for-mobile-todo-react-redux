@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { isOpenedChangeActionType } from './actions';
+
 
 class AddNew extends Component {
 
@@ -24,6 +26,11 @@ class AddNew extends Component {
     e.preventDefault();
     console.log('title', this.state.title);
     console.log('text', this.state.text);
+    this.props.isOpenedChange();
+  }
+
+  openHandler = () => {
+    this.props.isOpenedChange();
   }
 
   render() {
@@ -31,7 +38,7 @@ class AddNew extends Component {
     console.log(isOpened);
     return (
       <div className={isOpened ? "add-new-container open-new-container" : "add-new-container"}>
-        <i className={isOpened ? "fas fa-minus-circle open" : "fas fa-plus-circle"}></i>
+        <i className={isOpened ? "fas fa-minus-circle open" : "fas fa-plus-circle"} onClick={this.openHandler}></i>
         <form className='add-new-form' onSubmit={this.submitNew}>
           <input type='text' onChange={this.addNewTitle} />
           <textarea className="text-container" onChange={this.addNewText}>
@@ -49,4 +56,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(AddNew);
+const mapDispatchToProps ={
+  isOpenedChange: isOpenedChangeActionType
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddNew);
