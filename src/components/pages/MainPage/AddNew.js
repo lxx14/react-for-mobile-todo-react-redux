@@ -25,9 +25,6 @@ class AddNew extends Component {
     console.log('text', this.state.text);
   }
 
-
-
-
   render() {
     return (
       <div className='add-new-container'>
