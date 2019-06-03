@@ -11,6 +11,8 @@ class MainPage extends Component {
     const {toDos} = this.props;
     if (this.props.toDos.length>0) {
     const toDosList = toDos.map(item=><div key={item.id} className='todo-container'><h3>{item.title}</h3><p>{item.text}</p></div>)
+    } else if (this.props.searchString&&this.props.toDos.length===0) {
+      const toDosList = <h2>Oops... here is nothing with your request</h2>
     } else {
       const toDosList = <h2>Empty, let's change it! :)</h2>
     }
@@ -27,7 +29,8 @@ class MainPage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  toDos: state.mainPage.toDos.filter(item=>item.title.toLowerCase().includes(state.mainPage.searchString))
+  toDos: state.mainPage.toDos.filter(item=>item.title.toLowerCase().includes(state.mainPage.searchString)),
+  searchString: state.mainPage.searchString
 })
 
 export default connect(mapStateToProps)(MainPage);
