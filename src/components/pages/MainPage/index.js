@@ -41,7 +41,7 @@ class MainPage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  toDos: state.mainPage.toDos.filter(item => item.title.toLowerCase().includes(state.mainPage.searchString)),
+  toDos: state.mainPage.toDos.filter(item => item.title.toLowerCase().includes(state.mainPage.searchString.toLowerCase())),
   searchString: state.mainPage.searchString
 })
 
