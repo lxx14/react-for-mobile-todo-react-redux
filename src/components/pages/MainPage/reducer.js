@@ -1,4 +1,4 @@
-import { IS_OPEN_HANDLER, ADD_TODO, ADD_SEARCH_REQUEST, DELETE_ITEM } from '../../constants';
+import { IS_OPEN_HANDLER, ADD_TODO, ADD_SEARCH_REQUEST, DELETE_ITEM, CHANGE_ITEM } from '../../constants';
 
 const initialState = {
   toDos: [],
@@ -27,6 +27,16 @@ export default function (state = initialState, action) {
       return {
         ...state,
         toDos: state.toDos.filter(item => item.id !== parseInt(action.data))
+      }
+    case CHANGE_ITEM:
+      return {
+        ...state,
+        toDos: state.toDos.map(item => {
+          if (item.id === action.data.id) {
+            return action.data
+          }
+          return item
+        })
       }
   }
 
