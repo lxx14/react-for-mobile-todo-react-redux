@@ -36,6 +36,10 @@ class AddNew extends Component {
     }
     this.props.addNewToDo(newToDo);
     this.props.isOpenedChange();
+    this.setState({
+      title: '',
+      text: ''
+    })
 
   }
 
@@ -49,8 +53,8 @@ class AddNew extends Component {
       <div className={isOpened ? "add-new-container open-new-container" : "add-new-container"}>
         <i className={isOpened ? "fas fa-minus-circle open" : "fas fa-plus-circle close"} onClick={this.openHandler}></i>
         <form className='add-new-form' onSubmit={this.submitNew}>
-          <input type='text' onChange={this.addNewTitle} />
-          <textarea className="text-container" onChange={this.addNewText}>
+          <input type='text' onChange={this.addNewTitle} placeholder='Title' value={this.state.title} />
+          <textarea className="text-container" onChange={this.addNewText} placeholder='Description' value={this.state.text}>
           </textarea>
           <button>Add</button>
         </form>
