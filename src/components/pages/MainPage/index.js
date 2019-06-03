@@ -9,7 +9,6 @@ import './style.scss';
 class MainPage extends Component {
 
   deleteToDo = (e) => {
-    console.log(e.target.id);
     this.props.deleteItem(e.target.id);
   }
 
