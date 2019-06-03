@@ -24,7 +24,7 @@
   }
   .add-new-container {
     position: fixed;
-    top: 170px;
+    top: 160px;
     box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 0.589);
     border-top-left-radius: 22px;
     width: 340px;
@@ -70,6 +70,18 @@
   }
   .open-new-container {
     right: 0px;
+  }
+  .todo-container {
+    width: 90%;
+    margin: 30px auto 0 auto;
+    background-color: rgb(221, 221, 221);
+    padding: 10px;
+    border-radius: 10px;
+    h3 {
+      margin: 0;
+      padding: 0 0 5px 0;
+      border-bottom: 2px dashed black;
+    }
   }
 }
 @keyframes rotate-open-close {

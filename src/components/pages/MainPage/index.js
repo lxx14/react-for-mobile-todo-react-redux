@@ -10,7 +10,7 @@ class MainPage extends Component {
   render() {
     const {toDos} = this.props;
     if (this.props.toDos.length>0) {
-    const toDosList = toDos.map(item=><div key={item.id}><h3>{item.title}</h3><p>{item.text}</p></div>)
+    const toDosList = toDos.map(item=><div key={item.id} className='todo-container'><h3>{item.title}</h3><p>{item.text}</p></div>)
     } else {
       const toDosList = <h2>Empty, let's change it! :)</h2>
     }
