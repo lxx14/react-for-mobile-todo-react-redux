@@ -18,6 +18,11 @@ export default function (state = initialState, action) {
         ...state,
         toDos: [action.data, ...state.toDos]
       }
+    case ADD_SEARCH_REQUEST:
+      return {
+        ...state,
+        searchString: action.data
+      }
   }
 
   return state;

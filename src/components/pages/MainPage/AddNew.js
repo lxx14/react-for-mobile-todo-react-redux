@@ -5,7 +5,8 @@ import { isOpenedChangeActionType, addToDoActionType } from './actions';
 
 class AddNew extends Component {
 
-  constructor() {
+  constructor(props) {
+    super(props);
     this.state = {
       title: '',
       text: '',

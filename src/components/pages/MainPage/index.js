@@ -27,7 +27,7 @@ class MainPage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  toDos: state.mainPage.toDos
+  toDos: state.mainPage.toDos.filter(item=>item.title.includes(state.mainPage.searchString))
 })
 
 export default connect(mapStateToProps)(MainPage);
