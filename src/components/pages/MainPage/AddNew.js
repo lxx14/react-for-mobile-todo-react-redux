@@ -8,6 +8,9 @@ class AddNew extends Component {
   addNewText = (e) => {
     
   }
+  submitNew = (e) => {
+    e.preventDefault();
+  }
 
 
 
@@ -16,10 +19,10 @@ class AddNew extends Component {
     return (
       <div className='add-new-container'>
         <i className="fas fa-plus-circle"></i>
-        <form className='add-new-form'>
+        <form className='add-new-form' onSubmit={this.submitNew}>
           <input type='text' onChange={this.addNewTitle}/>
           <input type='textarea' onChange={this.addNewText}/>
-          <button onSubmit={}>Add</button>
+          <button>Add</button>
         </form>
       </div>
     )
