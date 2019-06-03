@@ -39,10 +39,11 @@
         text-shadow: 0 2px 2px rgba(0, 0, 0, 0.863);
         transition: 0.5s;
       }
-      .fa-plus-circle {
+      .close {
         right: 55px;
       }
       .open {
+        animation: rotate-open-close 0.5s linear;
         text-shadow: none;
         right: 0;
       }
@@ -69,4 +70,8 @@
   .open-new-container {
     right: 0px;
   }
+}
+@keyframes rotate-open-close {
+  0% {transform: rotate(0deg)}
+  100% {transform: rotate(720deg)}
 }

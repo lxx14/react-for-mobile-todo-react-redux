@@ -38,7 +38,7 @@ class AddNew extends Component {
     console.log(isOpened);
     return (
       <div className={isOpened ? "add-new-container open-new-container" : "add-new-container"}>
-        <i className={isOpened ? "fas fa-minus-circle open" : "fas fa-plus-circle"} onClick={this.openHandler}></i>
+        <i className={isOpened ? "fas fa-minus-circle open" : "fas fa-plus-circle close"} onClick={this.openHandler}></i>
         <form className='add-new-form' onSubmit={this.submitNew}>
           <input type='text' onChange={this.addNewTitle} />
           <textarea className="text-container" onChange={this.addNewText}>
